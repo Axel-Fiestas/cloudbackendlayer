@@ -34,7 +34,7 @@ public class CloudWebSocketConfig implements WebSocketMessageBrokerConfigurer {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("https://html-web-socket-example-iot.vercel.app"); // Reemplaza esto con tu URL de Vercel
+        config.addAllowedOrigin("*"); // Reemplaza esto con tu URL de Vercel
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);

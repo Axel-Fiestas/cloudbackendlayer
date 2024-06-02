@@ -17,6 +17,7 @@ public class CloudWebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws")
+                .setAllowedOriginPatterns("https://html-web-socket-example-iot.vercel.app")
                 .setAllowedOrigins("*") // Permitir cualquier origen
                 .withSockJS();
     }

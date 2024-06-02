@@ -12,7 +12,9 @@ public class CloudWebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").setAllowedOrigins("*").withSockJS();
+        registry.addEndpoint("/ws")
+                .setAllowedOrigins("*") // Permitir cualquier origen
+                .withSockJS();
     }
 
     @Override

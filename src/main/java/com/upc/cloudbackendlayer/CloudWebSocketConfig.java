@@ -18,7 +18,7 @@ public class CloudWebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws")
-                .setAllowedOrigins("*") // Permitir cualquier origen
+                .setAllowedOrigins("*")
                 .withSockJS();
     }
 
@@ -33,10 +33,12 @@ public class CloudWebSocketConfig implements WebSocketMessageBrokerConfigurer {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("*"); // Reemplaza esto con tu URL de Vercel
+        config.addAllowedOrigin("https://sensor-dashboard-axelxd.netlify.app"); // Allow your Netlify app's origin
+        config.addAllowedOrigin("*");  // Keep this line to allow other origins (if needed)
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
+
 }

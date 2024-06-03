@@ -33,12 +33,10 @@ public class CloudWebSocketConfig implements WebSocketMessageBrokerConfigurer {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("https://sensor-dashboard-axelxd.netlify.app"); // Allow your Netlify app's origin
-        config.addAllowedOrigin("*");  // Keep this line to allow other origins (if needed)
+        config.addAllowedOriginPattern("*"); // Use addAllowedOriginPattern instead of addAllowedOrigin for better flexibility
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-
 }
